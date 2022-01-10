@@ -5,6 +5,6 @@
    | |  | | | | | | | | (_| | | |  | | (_| | | | | (_| | (_| |  __/ |   
    |_|  |_| |_|_|_| |_|\__, | |_|  |_|\__,_|_| |_|\__,_|\__, |\___|_|   
                         __/ |                            __/ |          
-                       |___/                            |___/     v0.1.6 
+                       |___/                            |___/     v0.1.8 
       © Ontology Engineering Group at Universidad Politéctnica de Madrid
       	Authors: Andrea Cimmino   

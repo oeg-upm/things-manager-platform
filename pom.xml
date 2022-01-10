@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>oeg.cogito</groupId>
 	<artifactId>thing-manager</artifactId>
-	<version>0.1.6</version>
+	<version>0.1.8</version>
 	<name>thing-manager</name>
 	<description>First version of the Thing Manager</description>
 	
