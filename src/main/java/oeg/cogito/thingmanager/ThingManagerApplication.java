@@ -23,6 +23,7 @@ public class ThingManagerApplication {
 	private static final String CONFIG_FILE = "./tm-config.json";
 	private static final String CONFIG_TDD_KEY = "wot directory";
 	private static final String CONFIG_TSTORE_KEY = "triple store";
+	private static final String CONFIG_HOST_KEY = "host";
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ThingManagerApplication.class, args);
@@ -50,10 +51,17 @@ public class ThingManagerApplication {
 				System.out.println(errorMessage());
 				System.exit(-1);
 			 }
+			 if(!json.has(CONFIG_HOST_KEY)) {
+					System.out.println("Missing '"+CONFIG_HOST_KEY+"' mandatory key in 'tm-config.json', please provide a json similar to: ");
+					System.out.println(errorMessage());
+					System.exit(-1);
+				 }
 			 TMConfiguration.triplestore = json.get(CONFIG_TSTORE_KEY).getAsString();
 			 TMConfiguration.WoTHive = json.get(CONFIG_TDD_KEY).getAsString();
+			 TMConfiguration.currentHost = json.get(CONFIG_HOST_KEY).getAsString();
 			 System.out.println("----| Configuration: wot directory is "+TMConfiguration.WoTHive);
 			 System.out.println("----| Configuration: triple store is "+TMConfiguration.triplestore);
+			 System.out.println("----| Configuration: host is "+TMConfiguration.currentHost);
 
 		}catch(Exception e) {
 			System.out.println(e.toString());
@@ -65,7 +73,8 @@ public class ThingManagerApplication {
 	private static String errorMessage() {
 		return "'{ "
 				+ "\n  \"wot directory\" : \"https://wothive.linkeddata.es\", "
-				+ "\n  \"triple store\" : \"http://localhost:8890/sparql\""
+				+ "\n  \"triple store\" : \"http://localhost:8890/sparql\","
+				+ "\n  \"host\" : \"http://localhost:8080\""
 				+ "\n  }' \n";
 	}
 

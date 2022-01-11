@@ -2,6 +2,7 @@ package oeg.cogito.thingmanager.model.factory;
 
 import java.util.UUID;
 
+import oeg.cogito.thingmanager.TMConfiguration;
 import oeg.cogito.thingmanager.TMUtils;
 import oeg.cogito.thingmanager.model.FileContainer;
 import oeg.cogito.thingmanager.model.FileStored;
@@ -95,14 +96,14 @@ public class FilesFactory {
 	
 	public static String buildFileStoredRawURI(FileStored file) {
 		StringBuilder builder = new StringBuilder();
-		builder.append("http://localhost:8080");
+		builder.append(TMConfiguration.currentHost);
 		builder.append("/containers/").append(file.getContainer()).append("/files/").append(file.getUuid());
 		return builder.toString();
 	}
 	
 	public static String buildFileStoredURI(FileStored file) {
 		StringBuilder builder = new StringBuilder();
-		builder.append("http://localhost:8080");
+		builder.append(TMConfiguration.currentHost);
 		builder.append("/files/").append(file.getUuid());
 		return builder.toString();
 	}

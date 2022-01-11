@@ -58,7 +58,7 @@ public class WoT {
 	public static JsonObject getTd(String id) throws  ThingDirectoryException {
 		try {
 			HttpClient client = HttpClient.newHttpClient();
-			System.out.println(formatURI(id));
+			
 			HttpRequest request = HttpRequest.newBuilder(URI.create(formatURI(id))).GET().build();
 			HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
 			String body = response.body();
